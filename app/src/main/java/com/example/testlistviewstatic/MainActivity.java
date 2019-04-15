@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -13,10 +15,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // on récupère ListView
-        ListView list = findViewById(R.id.maliste);
+        ListView myListView = findViewById(R.id.myListView);
 
-        // on intancie un adapteur avec notre liste et notre textView
-        ArrayAdapter<String> tableau = new ArrayAdapter<>(list.getContext(),R.layout.mon_texte);
+        // on intancie un adapteur avec notre liste et notre layout et l'id de notre textView
+        ArrayAdapter<String> tableau = new ArrayAdapter<>(myListView.getContext(),R.layout.list_element,R.id.test_list_view);
 
         // on ajoute nos chaînes de caractère
         for(int i = 1; i<40; i++){
@@ -24,6 +26,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // on affiche cet adapteur
-        list.setAdapter(tableau);
+        myListView.setAdapter(tableau);
     }
 }
